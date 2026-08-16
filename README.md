@@ -22,6 +22,12 @@ DSH 宿主插件:你发送的图片**照常显示在聊天记录里**,插件在 
 3. 描述结果按附件 id 在进程内缓存(重试/后续轮次不重复调用);视觉调用
    失败时降级为一段失败说明文本,不打断对话;用户取消时错误照常抛出。
 
+## 兼容性
+
+- 已测试环境:DeepSeek Harness `0.1.0-rc.6`(@deepseek-ai/dsh、dsh-llm 0.1.0-rc.6、cordis 4.0.1)。
+- 插件依赖的公开 API:`ctx.llm.stream`、`llm/stream` 水线、`contentHasImage`/`createMessage`/`BlockAssembler`、附件 image 块。这些在 0.1.x 线内稳定;但插件会**重写进入水线的请求**(框架文档要求监听器只读不改),这是官方尚未承诺的用法,升级 dsh 前建议先在临时 profile 里冒烟测试(发一张图即可)。
+- 插件不修改 dsh 安装、不写 dsh 目录、不碰会话日志;失败时按请求降级,不会影响纯文本对话。
+
 ## 安装(标准 bundle 方式)
 
 本包声明了 `dsh.bundle`,是标准的可分发 bundle:安装时自动插入插件行,

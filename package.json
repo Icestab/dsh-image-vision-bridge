@@ -1,6 +1,6 @@
 {
   "name": "dsh-image-vision-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DSH host plugin: automatically sends images in user messages to a vision model (default mimo-v2.5 on opencode-go) and feeds the returned text description to the main text model (e.g. deepseek-v4-pro), without touching the visible chat transcript.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,8 +27,8 @@
     "mimo"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": ">=4.0.0",
-    "@deepseek-ai/dsh-llm": ">=0.1.0-rc.0"
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-llm": "^0.1.0-rc.6"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/cordis": {
