@@ -1,5 +1,7 @@
 # dsh-image-vision-bridge
 
+[![npm version](https://img.shields.io/npm/v/dsh-image-vision-bridge)](https://www.npmjs.com/package/dsh-image-vision-bridge)
+
 DSH 宿主插件:你发送的图片**照常显示在聊天记录里**,插件在 `llm/stream`
 水线上把发给主模型的请求里的图片块悄悄替换成视觉模型 **mimo-v2.5**
 (默认走你已配置的 `opencode-go` 路由,复用现有 `OPENCODE_GO_API_KEY`)
@@ -27,10 +29,10 @@ DSH 宿主插件:你发送的图片**照常显示在聊天记录里**,插件在 
 
 ```sh
 # 本地目录 / tarball / npm / GitHub 均可:
-dsh plugin --profile web add ./dsh-image-vision-bridge
-dsh plugin --profile web add ./dsh-image-vision-bridge-0.1.0.tgz
-dsh plugin --profile web add dsh-image-vision-bridge      # 发布到 npm 后
-dsh plugin --profile web add github:Icestab/dsh-image-vision-bridge#<commit-sha>
+dsh plugin --profile web add dsh-image-vision-bridge              # npm
+dsh plugin --profile web add github:Icestab/dsh-image-vision-bridge#c67b4b3  # GitHub(锁定版本)
+dsh plugin --profile web add ./dsh-image-vision-bridge            # 本地目录
+dsh plugin --profile web add ./dsh-image-vision-bridge-0.1.0.tgz  # tarball
 ```
 
 仍有两步手工操作(插件无法替用户完成):
