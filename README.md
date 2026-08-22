@@ -24,9 +24,10 @@ DSH 宿主插件:你发送的图片**照常显示在聊天记录里**,插件在 
 
 ## 兼容性
 
-- 已测试环境:DeepSeek Harness `0.1.0-rc.6`(@deepseek-ai/dsh、dsh-llm 0.1.0-rc.6、cordis 4.0.1)。
+- 已测试环境:DeepSeek Harness `0.1.0-rc.6` 与 `0.1.1-rc.2`(@deepseek-ai/dsh、dsh-llm 同版本、cordis 4.0.1),11 项离线自测均通过。
 - 插件依赖的公开 API:`ctx.llm.stream`、`llm/stream` 水线、`contentHasImage`/`createMessage`/`BlockAssembler`、附件 image 块。这些在 0.1.x 线内稳定;但插件会**重写进入水线的请求**(框架文档要求监听器只读不改),这是官方尚未承诺的用法,升级 dsh 前建议先在临时 profile 里冒烟测试(发一张图即可)。
 - 插件不修改 dsh 安装、不写 dsh 目录、不碰会话日志;失败时按请求降级,不会影响纯文本对话。
+- dsh `0.1.1+` 内置了文本模型的图片占位降级(不报错,但模型看不到图片内容);本插件提供真正的视觉描述,二者互补。
 
 ## 安装(标准 bundle 方式)
 
